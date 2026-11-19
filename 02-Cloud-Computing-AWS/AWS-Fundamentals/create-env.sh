@@ -28,10 +28,10 @@ echo "Beginning to launch $5 EC2 instances..."
 aws ec2 run-instances \
     --image-id "$1" \
     --instance-type "$2" \
-    --count "$5" \
     --key-name "$3" \
     --security-group-ids "$4" \
-    --user-data file://$6 \
+    --count "$5" \
+    --user-data file://"$6" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=module,Value=$7}]"
 
 
